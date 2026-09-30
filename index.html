@@ -3,7 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Site</title>
+  <title>My Site | シンプルで美しいウェブサイト</title>
+  <meta name="description" content="シンプルで美しいウェブサイト。高速パフォーマンス、モダンデザイン、レスポンシブ対応であなたのアイデアを世界に届けます。">
+  <meta name="keywords" content="ウェブサイト, モダンデザイン, レスポンシブ, 高速, シンプル">
+  <meta name="author" content="My Site">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yourdomain.com/">
+
+  <!-- Open Graph (SNS共有用) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="My Site | シンプルで美しいウェブサイト">
+  <meta property="og:description" content="シンプルで美しいウェブサイト。高速パフォーマンス、モダンデザイン、レスポンシブ対応であなたのアイデアを世界に届けます。">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:site_name" content="My Site">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Site | シンプルで美しいウェブサイト">
+  <meta name="twitter:description" content="シンプルで美しいウェブサイト。高速パフォーマンス、モダンデザイン、レスポンシブ対応。">
+
+  <!-- 構造化データ (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "My Site",
+    "url": "https://yourdomain.com/",
+    "description": "シンプルで美しいウェブサイト。高速パフォーマンス、モダンデザイン、レスポンシブ対応。",
+    "inLanguage": "ja"
+  }
+  </script>
+
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -327,9 +358,9 @@
 <body>
   <header>
     <div class="container">
-      <nav>
-        <a href="#" class="logo">My Site</a>
-        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <nav aria-label="メインナビゲーション">
+        <a href="/" class="logo">My Site</a>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="メニューを開く" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
         <ul class="nav-links">
@@ -350,46 +381,49 @@
       </div>
     </section>
 
-    <section class="features" id="features">
+    <section class="features" id="features" aria-labelledby="features-heading">
       <div class="container">
-        <h2>Features</h2>
+        <h2 id="features-heading">Features</h2>
         <div class="grid">
-          <div class="card">
-            <div class="card-icon">&#9889;</div>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">&#9889;</div>
             <h3>高速パフォーマンス</h3>
             <p>軽量な設計で高速に表示。どんなデバイスでも快適な体験を提供します。</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">&#127912;</div>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">&#127912;</div>
             <h3>モダンデザイン</h3>
             <p>洗練されたUIで第一印象を大切に。ダークモードにも対応しています。</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">&#128241;</div>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">&#128241;</div>
             <h3>レスポンシブ</h3>
             <p>スマートフォンからデスクトップまで、あらゆる画面サイズに最適化。</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="about" id="about">
+    <section class="about" id="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="about-inner">
-          <h2>About</h2>
+          <h2 id="about-heading">About</h2>
           <p>このサイトはシンプルなHTML/CSSで構築されています。フレームワークに依存せず、軽量かつカスタマイズしやすい設計です。自由に編集して、あなただけのサイトにしてください。</p>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <h2>Contact</h2>
+        <h2 id="contact-heading">Contact</h2>
         <p>お気軽にお問い合わせください。</p>
         <form class="contact-form" onsubmit="event.preventDefault(); alert('送信しました！');">
-          <input type="text" placeholder="お名前" required>
-          <input type="email" placeholder="メールアドレス" required>
-          <textarea placeholder="メッセージ"></textarea>
+          <label for="name" class="sr-only">お名前</label>
+          <input type="text" id="name" name="name" placeholder="お名前" required>
+          <label for="email" class="sr-only">メールアドレス</label>
+          <input type="email" id="email" name="email" placeholder="メールアドレス" required>
+          <label for="message" class="sr-only">メッセージ</label>
+          <textarea id="message" name="message" placeholder="メッセージ"></textarea>
           <button type="submit">送信</button>
         </form>
       </div>
